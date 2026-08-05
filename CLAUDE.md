@@ -88,8 +88,10 @@ Pipeline ไม่ต้องเรียก Anthropic/OpenAI API — **Claude 
 
 ## 🔗 กฎ 6: ห้ามทำงานข้ามโปรเจกต์
 
-โปรเจกต์นี้แยกจาก `Day-Guide`, `Day-News-Aus`, `dayai-massage`, `dayai-monorepo`
-- **ยืมโค้ดจาก Day-Guide ได้** (copy มาไว้ใน `pipeline/`) แต่ **ห้ามไปแก้ไฟล์ใน Day-Guide**
+โปรเจกต์นี้แยกจาก `Day-News-Aus`, `dayai-massage`, `dayai-monorepo`
+- **ยืมโค้ดจาก `Day-News-Aus` ได้** (ก๊อปมาไว้ใน `pipeline/`) แต่ **ห้ามไปแก้ไฟล์ใน Day-News-Aus**
+  → Day-News-Aus รันอัตโนมัติทุกวันอยู่ **ถ้าไปแก้แล้วพัง = ช่องข่าว 4 ช่องหยุด**
+- ❌ **`Day-Guide` เลิกใช้แล้ว** — ห้ามเปิด ห้ามอ้างอิง โค้ดถูกก๊อปไปอยู่ใน `Day-News-Aus/src/guide/` หมดแล้ว
 - ห้าม save ไฟล์ของโปรเจกต์นี้ไปไว้ repo อื่น
 
 ---
@@ -98,6 +100,8 @@ Pipeline ไม่ต้องเรียก Anthropic/OpenAI API — **Claude 
 
 - คุณเดอยู่**ออสเตรเลีย** (dayprint.com.au) — ประเทศแรกที่ทำคือออสเตรเลีย
 - มีช่อง YouTube อยู่แล้ว 4 ช่อง (`Day-News-Aus`) → ใช้ดันช่องใหม่ได้
+- ระบบที่ใช้งานจริงอยู่ตอนนี้: `C:\Users\dacha\youtube150226\Day-News-Aus` — รันอัตโนมัติทุกวัน
+- **โปรเจกต์นี้ควรอยู่ที่ `C:\Users\dacha\youtube150226\Day-ThaiShop-Marketing`** (D: เป็น HDD — ช้าเกินไปสำหรับเรนเดอร์วิดีโอ)
 - สินค้าที่ขายคือ **DayAI** — ระบบจัดการร้านนวด (จอง/ปฏิทิน/LINE/รีวิว/ค่ามือ) + AI รับโทรศัพท์ "น้องพลอย"
 - คู่แข่งคนไทยเก็บร้านนวด **$99/เดือน** แค่ค่า Book Online → ตลาดจ่ายจริง
 - แผนช่องเดิมเคยวางไว้แล้ววันที่ 22 เม.ย. 2026 (อยู่ใน `dayai-monorepo/memory/reviews/project_youtube-dayai-reviews.md`) — เอามารวมไว้ใน `docs/` นี้แล้ว

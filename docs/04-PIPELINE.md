@@ -4,29 +4,46 @@
 
 ---
 
-## 1. ไม่ต้องเขียนใหม่ — ยืมจาก Day-Guide
+## 1. ไม่ต้องเขียนใหม่ — ยืมจาก Day-News-Aus
 
-`Dayqr/Day-Guide` มี pipeline ที่ใช้งานได้จริงอยู่แล้ว ก๊อปมาไว้ใน `pipeline/`
+> ❌ **Day-Guide เลิกใช้แล้ว** (โปรเจกต์ที่ทำแล้วไม่สำเร็จ) — อย่าไปอ้างอิง
+> ✅ ระบบที่ **ใช้งานจริงและรันทุกวัน** คือ `C:\Users\dacha\youtube150226\Day-News-Aus`
+> (โค้ดของ Day-Guide ถูกก๊อปไปอยู่ใน `Day-News-Aus/src/guide/` หมดแล้ว)
 
-| ไฟล์ใน Day-Guide | ทำอะไร | เอามาใช้ |
+### ของที่ Day-News-Aus มีให้ยืม (ตรวจสอบแล้วว่ามีจริง)
+
+| ไฟล์ใน Day-News-Aus | ทำอะไร | เอามาใช้ |
 |---|---|---|
-| `create_guide.py` | ตัวหลัก — คุม flow ทั้งหมด | ✅ ก๊อปมาแก้ |
-| `src/google_tts.py` | แปลงข้อความเป็นเสียงไทย (ฟรี) | ✅ ใช้ได้เลย |
-| `src/pexels_video.py` | ดึงคลิป stock จาก Pexels (ฟรี) | ✅ ใช้ได้เลย |
-| `src/veo_video.py` | สร้างคลิปด้วย Google Veo (AI) | ✅ ใช้ได้เลย |
-| `src/text_overlay.py` | ใส่ตัวหนังสือไทยบนวิดีโอ | ✅ ใช้ได้เลย |
-| `src/video_assembler.py` | ประกอบเป็นวิดีโอ | ✅ ใช้ได้เลย |
-| `src/thumbnail_generator.py` | ทำ thumbnail | ✅ ใช้ได้เลย |
-| `src/transcriber.py` | ทำ subtitle จับเวลาคำ | ✅ ใช้ได้เลย |
+| `src/google_tts.py` | เสียงไทย Google TTS (ฟรี) | ✅ ใช้ได้เลย |
 | `src/youtube_upload.py` | อัป YouTube อัตโนมัติ | ✅ ใช้ได้เลย |
-| `fonts/Mitr-Bold.ttf`, `Kanit-Bold.ttf` | ฟอนต์ไทย | ✅ ก๊อปมา |
+| `src/facebook_upload.py` | **อัป Facebook อัตโนมัติ** | ✅ ใช้ได้เลย ⭐ |
+| `src/facebook_refresh_tokens.py` | ต่ออายุ token Facebook | ✅ ใช้ได้เลย |
+| `src/tiktok_upload.py` | อัป TikTok | ⚠️ มีแต่ไม่ใช้ (auto ยอดตก อัปมือดีกว่า) |
+| `src/shorts_frame_generator.py` | สร้างเฟรมคลิปแนวตั้ง | ✅ ใช้ได้เลย |
+| `src/long_frame_generator.py` | สร้างเฟรมคลิปแนวนอน | ✅ ใช้ได้เลย |
+| `src/video_creator.py` | ประกอบวิดีโอ | ✅ ใช้ได้เลย |
+| `src/guide/pexels_video.py` | ดึงคลิป stock Pexels (ฟรี) | ✅ ใช้ได้เลย |
+| `src/guide/text_overlay.py` | ใส่ตัวหนังสือไทย | ✅ ใช้ได้เลย |
+| `src/guide/transcriber.py` | subtitle จับเวลาคำ | ✅ ใช้ได้เลย |
+| `src/guide/video_assembler.py` | ประกอบวิดีโอ (ตัวเต็ม) | ✅ ใช้ได้เลย |
+| `src/guide/thumbnail_generator.py` | ทำ thumbnail | ✅ ใช้ได้เลย |
+| `create_aus_shorts.py` | **ตัวอย่าง runner ที่ใช้งานจริง** | ✅ ใช้เป็นแม่แบบ |
+| `run_full_pipeline.py` | คุม flow ทั้งหมด | ✅ ใช้เป็นแม่แบบ |
+| `automation/daily_news.bat` + `*.ps1` | ตั้งเวลารันอัตโนมัติทุกวัน (Windows Task Scheduler) | ✅ ก๊อปมาแก้ |
+| `skills/HOOK_WRITING.md` (34KB) | กฎเขียน hook/title/CTA | ✅ อ่านประกอบกับ `03-HOOK-FORMULAS.md` |
+| `skills/SHORT_PEXELS.md` (43KB) | ขั้นตอนทำ Short + Pexels | ✅ อ่านก่อนเขียนโค้ด |
+| `fonts/` | ฟอนต์ไทย Mitr/Kanit | ✅ ก๊อปมา |
+| `list_avatars.py`, `create_transparent_avatar.py` | **โค้ด HeyGen Avatar** | ⚠️ ดู `05-AVATAR.md` |
 
-**สิ่งที่ต้องเพิ่มใหม่ (Day-Guide ยังไม่มี):**
+**สิ่งที่ต้องเขียนเพิ่ม:**
 | ต้องทำ | ทำไม |
 |---|---|
-| `src/facebook_upload.py` | Facebook คือช่องทางหลักของกลุ่มนี้ (Day-News-Aus มีโค้ดนี้ ยืมมาได้) |
-| `src/avatar_video.py` | ต่อกับ HeyGen/Synthesia — ดู `05-AVATAR.md` |
+| `create.py` | runner ของโปรเจกต์นี้ — อ่านสคริปต์จาก `../scripts/` แทนที่จะไปหาข่าว |
+| `src/avatar_video.py` | ปรับโค้ด HeyGen เดิมให้ใช้ **หน้าคุณเด** + เสียง Google TTS (ของเดิมใช้ avatar สำเร็จรูป + Botnoi ซึ่งเลิกใช้แล้ว) |
 | `src/repurpose.py` | ตัด long-form → Shorts อัตโนมัติ |
+
+> ⚠️ **ห้ามไปแก้ไฟล์ใน Day-News-Aus** — มันรันอัตโนมัติทุกวัน แก้แล้วพัง = ช่องข่าว 4 ช่องหยุด
+> ก๊อปมาไว้ใน `pipeline/` แล้วแก้ในนี้เท่านั้น
 
 ---
 
@@ -101,33 +118,91 @@ python create.py --topic 12 --format reels --avatar
 
 ---
 
-## 5. ตั้งค่าครั้งแรก (ทำใน VS Code)
+## 5. ที่เก็บไฟล์ — ไดรฟ์ไหน (สำคัญ!)
 
-```bash
-# 1. clone มาที่เครื่อง
+### สภาพเครื่องคุณเด
+```
+C: = SSD  (ระบบ + งานที่รันอยู่จริง)   ← Day-News-Aus อยู่ที่นี่ รันทุกวัน
+D: = HDD  (จานหมุน — ช้า แต่พื้นที่เยอะ)
+```
+
+### ✅ วางตรงนี้
+```
+C:\Users\dacha\youtube150226\
+├── Day-News-Aus\                  ← ระบบข่าว (ห้ามแตะ รันทุกวัน)
+└── Day-ThaiShop-Marketing\        ← ⭐ โปรเจกต์นี้ วางข้างกัน
+```
+
+**ทำไมไม่วาง D: ทั้งที่พื้นที่เยอะกว่า**
+
+| เรื่อง | SSD (C:) | HDD (D:) |
+|---|---|---|
+| ffmpeg เรนเดอร์วิดีโอ | เร็ว | **ช้ากว่า 10-20 เท่า** (ffmpeg เขียนไฟล์ชั่วคราวตลอดเวลา) |
+| `git status` / `git checkout` | ทันที | **ค้างหลายวินาที** (ไฟล์เล็กเยอะ = HDD แย่ที่สุด) |
+| เปิดโปรเจกต์ใน VS Code | ทันที | หมุนรอ |
+
+→ **HDD ไม่ได้ห้ามใช้ แต่ห้ามใช้เป็นที่ทำงาน**
+
+### 📦 ให้ D: (HDD) ทำหน้าที่เป็นคลังเก็บแทน
+
+```
+D:\video-archive\
+├── uploaded\        วิดีโอที่อัปขึ้นช่องแล้ว (ย้ายมาจาก C: ทุกสัปดาห์)
+├── avatar-source\   วิดีโอต้นฉบับสำหรับสร้าง avatar (ไฟล์ใหญ่ ไม่ต้องเร็ว)
+└── backup\          สำรองข้อมูล
+```
+
+ตั้งใน `.env`:
+```
+ARCHIVE_DIR=D:\video-archive
+```
+→ pipeline เรนเดอร์ที่ C: (เร็ว) → เสร็จแล้วย้ายไป D: (ประหยัดพื้นที่ SSD)
+
+> ⚠️ **ห้ามวางโปรเจกต์ใน `Documents` / `Desktop` / `OneDrive`** — OneDrive จะพยายามอัปโหลดไฟล์ .mp4 หลาย GB ตลอดเวลา ทำให้ git และการเรนเดอร์พัง
+> `C:\Users\dacha\youtube150226\` ปลอดภัย เพราะ Day-News-Aus ใช้อยู่แล้วโดยไม่มีปัญหา
+
+---
+
+## 6. ตั้งค่าครั้งแรก (ทำใน VS Code)
+
+```powershell
+# 1. clone มาที่เครื่อง — วางข้างๆ Day-News-Aus
+cd C:\Users\dacha\youtube150226
 git clone https://github.com/Dayqr/Day-ThaiShop-Marketing
 cd Day-ThaiShop-Marketing
 
-# 2. ก๊อป pipeline จาก Day-Guide
-#    (Windows) copy โฟลเดอร์ src\ และ fonts\ จาก D:\Day-Guide มาไว้ที่ pipeline\
+# 2. ก๊อป pipeline จาก Day-News-Aus (ไม่ใช่ Day-Guide!)
+xcopy /E /I ..\Day-News-Aus\src pipeline\src
+xcopy /E /I ..\Day-News-Aus\fonts pipeline\fonts
+copy ..\Day-News-Aus\requirements.txt pipeline\
 
 # 3. ติดตั้ง
 python -m venv venv
 venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r pipeline\requirements.txt
 
 # 4. สร้างไฟล์ .env (ห้าม commit!)
-#    PEXELS_API_KEY=...
-#    GOOGLE_APPLICATION_CREDENTIALS=...
-#    YOUTUBE_CLIENT_SECRET=...
-#    FACEBOOK_PAGE_TOKEN=...
+#    ก๊อปค่าจาก Day-News-Aus\.env ที่ใช้งานได้อยู่แล้ว
+copy ..\Day-News-Aus\.env.example .env
 ```
 
-**ต้องมีติดเครื่อง:** Python 3.11+ · ffmpeg · ImageMagick (ถ้า Day-Guide ใช้)
+**ค่าที่ต้องใส่ใน `.env`:**
+```
+PEXELS_API_KEY=...                      (ฟรี)
+GOOGLE_APPLICATION_CREDENTIALS=...      (ฟรี — Google TTS)
+YOUTUBE_CLIENT_ID=... / _SECRET=...     (ฟรี)
+FACEBOOK_PAGE_TOKEN=...                 (ฟรี)
+HEYGEN_API_KEY=...                      (⚠️ มีค่ารายเดือน — ใส่ทีหลังได้)
+ARCHIVE_DIR=D:\video-archive
+```
+
+**ต้องมีติดเครื่อง:** Python 3.11+ · ffmpeg · git
+
+> ⚠️ **ช่อง YouTube/Facebook ต้องใช้คนละ credential กับ Day-News-Aus** — สร้าง OAuth ใหม่สำหรับช่องใหม่ อย่าใช้ token เดิม ไม่งั้นคลิปจะไปโผล่ผิดช่อง
 
 ---
 
-## 6. ⚠️ Known Bugs (จาก Day-Guide — ระวังซ้ำ)
+## 7. ⚠️ Known Bugs (จากระบบเดิม — ระวังซ้ำ)
 
 | ปัญหา | อาการ | วิธีเลี่ยง |
 |---|---|---|
@@ -141,13 +216,16 @@ pip install -r requirements.txt
 
 ---
 
-## 7. สถานะปัจจุบัน
+## 8. สถานะปัจจุบัน
 
 ```
-[ ] ก๊อป pipeline จาก Day-Guide มาไว้ใน pipeline/
+[ ] clone โปรเจกต์ลง C:\Users\dacha\youtube150226\Day-ThaiShop-Marketing
+[ ] ก๊อป src/ + fonts/ จาก Day-News-Aus มาไว้ใน pipeline/
+[ ] สร้าง OAuth ใหม่สำหรับช่อง YouTube + Facebook Page ใหม่
+[ ] เขียน create.py (อ่านสคริปต์จาก ../scripts/ แทนการหาข่าว)
 [ ] แก้ให้รองรับ format reels (9:16, 60 วิ)
-[ ] เพิ่ม facebook_upload.py (ยืมจาก Day-News-Aus)
 [ ] เพิ่ม repurpose.py (ตัด long → shorts)
 [ ] เพิ่ม avatar_video.py (ดู 05-AVATAR.md)
+[ ] ตั้ง Task Scheduler ให้รันอัตโนมัติ (ก๊อปจาก Day-News-Aus/automation/)
 [ ] ทดสอบสร้างคลิปแรกจนจบ
 ```
