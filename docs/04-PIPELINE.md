@@ -163,28 +163,27 @@ ARCHIVE_DIR=D:\video-archive
 
 ---
 
-## 6. ตั้งค่าครั้งแรก (ทำใน VS Code)
+## 6. ตั้งค่าครั้งแรก — ใช้ `setup.bat`
 
 ```powershell
-# 1. clone มาที่เครื่อง — วางข้างๆ Day-News-Aus
 cd C:\Users\dacha\youtube150226
 git clone https://github.com/Dayqr/Day-ThaiShop-Marketing
 cd Day-ThaiShop-Marketing
-
-# 2. ก๊อป pipeline จาก Day-News-Aus (ไม่ใช่ Day-Guide!)
-xcopy /E /I ..\Day-News-Aus\src pipeline\src
-xcopy /E /I ..\Day-News-Aus\fonts pipeline\fonts
-copy ..\Day-News-Aus\requirements.txt pipeline\
-
-# 3. ติดตั้ง
-python -m venv venv
-venv\Scripts\activate
-pip install -r pipeline\requirements.txt
-
-# 4. สร้างไฟล์ .env (ห้าม commit!)
-#    ก๊อปค่าจาก Day-News-Aus\.env ที่ใช้งานได้อยู่แล้ว
-copy ..\Day-News-Aus\.env.example .env
+.\setup.bat
 ```
+
+`setup.bat` ทำ 5 ขั้นให้อัตโนมัติ (รันซ้ำได้ ไม่ทับของเดิม ไม่ลบอะไรเลย):
+
+| ขั้น | ทำอะไร |
+|---|---|
+| 1 | เช็ค git / python / ffmpeg — ถ้าขาดจะบอกลิงก์ให้โหลด |
+| 2 | `xcopy` เอา `src\` + `fonts\` + `requirements.txt` จาก `..\Day-News-Aus` มาไว้ที่ `pipeline\` <br>+ ก๊อป skill files (HOOK_WRITING, SHORT_PEXELS) ไปที่ `pipeline\reference\` |
+| 3 | สร้าง `venv` + `pip install -r pipeline\requirements.txt` |
+| 4 | สร้าง `D:\video-archive\{uploaded, avatar-source, backup}` |
+| 5 | สร้าง `.env` พร้อมช่องกรอก + ตั้ง `ARCHIVE_DIR=D:\video-archive` ให้แล้ว |
+
+**ย้ายไฟล์ไป D: เมื่อทำวิดีโอเสร็จ** → ดับเบิลคลิก `archive.bat`
+(นับไฟล์ให้ดู → ถามยืนยัน → ย้ายเฉพาะ `.mp4 .mov .wav .mp3 .m4a` คงโครงสร้างโฟลเดอร์ไว้)
 
 **ค่าที่ต้องใส่ใน `.env`:**
 ```
@@ -219,8 +218,8 @@ ARCHIVE_DIR=D:\video-archive
 ## 8. สถานะปัจจุบัน
 
 ```
-[ ] clone โปรเจกต์ลง C:\Users\dacha\youtube150226\Day-ThaiShop-Marketing
-[ ] ก๊อป src/ + fonts/ จาก Day-News-Aus มาไว้ใน pipeline/
+[ ] clone + รัน setup.bat ที่ C:\Users\dacha\youtube150226\Day-ThaiShop-Marketing
+[ ] (setup.bat ทำให้แล้ว) ก๊อป src/ + fonts/ จาก Day-News-Aus
 [ ] สร้าง OAuth ใหม่สำหรับช่อง YouTube + Facebook Page ใหม่
 [ ] เขียน create.py (อ่านสคริปต์จาก ../scripts/ แทนการหาข่าว)
 [ ] แก้ให้รองรับ format reels (9:16, 60 วิ)

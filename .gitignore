@@ -30,6 +30,12 @@ assets/bgm/
 thumbnails/
 *.png.tmp
 
+# โค้ดที่ก๊อปมาจาก Day-News-Aus (setup.bat สร้างให้ใหม่ได้ ไม่ต้อง commit ซ้ำ)
+pipeline/src/
+pipeline/fonts/
+pipeline/reference/
+pipeline/requirements.txt
+
 # Python
 venv/
 .venv/

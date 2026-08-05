@@ -13,8 +13,8 @@
 [ ] เปิด Facebook Page
 [ ] เปิด LINE OA + ตั้งข้อความต้อนรับอัตโนมัติ
 [ ] ทำของฟรี 1 ชิ้น (เทมเพลตคำนวณต้นทุนร้าน — ไฟล์ Excel/PDF)
-[ ] clone โปรเจกต์ลง C:\Users\dacha\youtube150226\Day-ThaiShop-Marketing
-[ ] ก๊อป pipeline จาก Day-News-Aus มาไว้ที่ pipeline/ (ดู pipeline/README.md)
+[ ] clone + รัน setup.bat ที่ C:\Users\dacha\youtube150226\Day-ThaiShop-Marketing
+[ ] (setup.bat ทำให้แล้ว) ก๊อป pipeline + สร้าง D:\video-archive
 ```
 
 **Bio ที่แนะนำ (ทั้ง YouTube และ Facebook):**
