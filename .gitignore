@@ -1,0 +1,57 @@
+# ⚠️ ห้าม commit ความลับ
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+client_secret*.json
+token.json
+token.pickle
+service-account*.json
+*-credentials.json
+
+# ไฟล์วิดีโอ/เสียง (ใหญ่เกินไป)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+*.m4a
+output/
+downloads/
+clips/
+temp/
+tmp/
+assets/avatar-source/
+assets/bgm/
+
+# รูปที่ generate ออกมา
+thumbnails/
+*.png.tmp
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+automation_log.txt
