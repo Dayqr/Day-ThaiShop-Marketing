@@ -130,6 +130,8 @@ if exist "pipeline\requirements.txt" (
   echo   กำลังติดตั้ง library... ^(ใช้เวลาสักครู่^)
   call "venv\Scripts\python.exe" -m pip install --quiet --upgrade pip
   call "venv\Scripts\python.exe" -m pip install --quiet -r "pipeline\requirements.txt"
+  REM requirements.txt ของ Day-News-Aus ไม่ครบ — โค้ดใช้ Pillow (ทำภาพ) + openai (thumbnail) ด้วย
+  call "venv\Scripts\python.exe" -m pip install --quiet Pillow openai
   if errorlevel 1 (
     echo   [!] ติดตั้งบาง library ไม่สำเร็จ - ดูข้อความข้างบน
   ) else (

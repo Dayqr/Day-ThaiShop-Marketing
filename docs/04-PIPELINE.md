@@ -39,7 +39,7 @@
 | ต้องทำ | ทำไม |
 |---|---|
 | `create.py` | runner ของโปรเจกต์นี้ — อ่านสคริปต์จาก `../scripts/` แทนที่จะไปหาข่าว |
-| `src/avatar_video.py` | ปรับโค้ด HeyGen เดิมให้ใช้ **หน้าคุณเด** + เสียง Google TTS (ของเดิมใช้ avatar สำเร็จรูป + Botnoi ซึ่งเลิกใช้แล้ว) |
+| ~~`src/avatar_video.py`~~ | ✅ **ได้มาแล้ว (6 ส.ค. 2026)** — กู้จาก Day-Biz: `pipeline/src/guide/heygen_avatar.py` (เรียก HeyGen + ตัดเสียงแค่ 60 วิแรกคุมค่าใช้จ่าย) + `pipeline/src/guide/avatar_overlay.py` (ไดคัทพื้นเขียว ซ้อนหน้าเป็นกรอบเล็กมุมจอ — ทดสอบ ffmpeg ผ่านแล้ว) เหลือแค่ต่อเข้า create.py |
 | `src/repurpose.py` | ตัด long-form → Shorts อัตโนมัติ |
 
 > ⚠️ **ห้ามไปแก้ไฟล์ใน Day-News-Aus** — มันรันอัตโนมัติทุกวัน แก้แล้วพัง = ช่องข่าว 4 ช่องหยุด
@@ -205,6 +205,9 @@ ARCHIVE_DIR=D:\video-archive
 
 | ปัญหา | อาการ | วิธีเลี่ยง |
 |---|---|---|
+| requirements.txt ไม่ครบ | ติดตั้งแล้ว import PIL / openai พัง | setup.bat ติดตั้ง Pillow + openai เพิ่มให้แล้ว (แก้ 6 ส.ค. 2026) |
+| .env template ใช้ชื่อ `GOOGLE_APPLICATION_CREDENTIALS` | เสียงไม่ออก | โค้ดจริง (`google_tts.py`) อ่าน **`GOOGLE_API_KEY`** — ใช้คีย์ Gemini |
+| `facebook_refresh_tokens.py` ต้นฉบับ hardcode APP_SECRET | รหัสลับติดไปกับโค้ด | แทนที่ด้วยเวอร์ชันอ่านจาก .env แล้ว (กู้มาจาก Day-Biz 6 ส.ค. 2026) |
 | สคริปต์ยาวเกิน | คลิปยาวกว่าที่ตั้งใจมาก | ล็อกจำนวนตัวอักษร: Reels ≤ 900 ตัว, Short ≤ 1,400 ตัว |
 | คลิป Pexels วนซ้ำ | เห็นคลิปเดิมหลายรอบในคลิปเดียว | เก็บ list คลิปที่ใช้แล้ว ห้ามซ้ำในคลิปเดียวกัน |
 | ตัวหนังสือไทยขึ้นเป็นกล่อง | ฟอนต์ไม่รองรับไทย | ใช้ Mitr-Bold.ttf หรือ Kanit-Bold.ttf เท่านั้น |

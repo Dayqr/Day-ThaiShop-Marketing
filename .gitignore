@@ -1,6 +1,7 @@
 # ⚠️ ห้าม commit ความลับ
 .env
 .env.*
+tokens/
 *.key
 *.pem
 credentials.json
